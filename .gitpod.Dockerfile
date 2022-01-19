@@ -1,17 +1,18 @@
-FROM gitpod/workspace-base
+FROM gitpod/workspace-full
 
-    # Install Oh My Zsh !
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
-    # Spaceship theme
-    git clone https://github.com/spaceship-prompt/spaceship-prompt.git $ZSH/themes/spaceship-prompt --depth=1 \
-    ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" $ZSH/themes/spaceship.zsh-theme \
-    # Powerlevel10k theme
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH/custom/themes/powerlevel10k \
-    # Autosuggestion plugin
-    git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH/custom/plugins/zsh-autosuggestions 
-    # Install Jekyll
-    #gem install bundler jekyll
+# Wakatime config
+ARG WAKATIME_API_KEY
+ENV ZSH=/home/gitpod/.oh-my-zsh
+
+# Set configuration for wakatime
+RUN printf "\n[settings]\napi_key = $WAKATIME_API_KEY\n" > ~/.wakatime.cfg \
+    # Install Jekyll
+    && bash -lc "gem install bundler jekyll" \
+    && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+    # Powerlevel10k theme
+    && sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH/custom/themes/powerlevel10k --depth=1
 
 # ADD zsh & oh my zsh config file
 ADD .zshrc .
-# 
+# ADD Powerlevel10k theme
+ADD .p10k.zsh .

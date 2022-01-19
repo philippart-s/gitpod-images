@@ -15,7 +15,7 @@ fi
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell", jreese.zsh-theme, kennethreitz.zsh-theme
-ZSH_THEME="random"
+ZSH_THEME="powerlevel10k/powerlevel10k" #"random"
 ZSH_THEME_RANDOM_CANDIDATES=( "spaceship" "powerlevel10k/powerlevel10k" )
 
 # Uncomment the following line to use case-sensitive completion.
@@ -60,7 +60,8 @@ ZSH_THEME_RANDOM_CANDIDATES=( "spaceship" "powerlevel10k/powerlevel10k" )
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+#plugins=(git zsh-autosuggestions)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
