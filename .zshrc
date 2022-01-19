@@ -61,7 +61,7 @@ ZSH_THEME_RANDOM_CANDIDATES=( "spaceship" "powerlevel10k/powerlevel10k" )
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git zsh-autosuggestions)
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
